@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				overflow: hidden;
+				position: relative;
+				background-color: #ab0303;
+			}
+			.home{
+				width: 100vw;
+				height: 100vh;
+			}
+			.welcome{
+				pointer-events: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 0;
+			}
+			.title{
+				color:#fff;
+				font-size: 20px;
+				font-family: "楷体";
+			}
+			.home-menu{
+				width: 576px;
+				height: 324px;
+				background-color: rgba(255,255,255,.6);
+				background-size: cover;
+				border-radius: 10px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				position: relative;
+			}
+			.home-menu-content{
+				width: 90%;
+				height: 90%;
+				border-radius: 10px;
+				color: #fff;
+				position: absolute;
+				top: 5%;
+				left: 5%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="home">
+			<div id="welcome"></div>
+			<div class="title">优雅的bili | 可爱的bolo</div>
+			<div class="home-menu">
+				<div class="home-menu-content">
+					aaaaaaaa
+				</div>
+			</div>
+		</div>
+		
+		<script src="./fairyDustCursor.js"></script>
+	</body>
+</html>
