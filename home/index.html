@@ -5,14 +5,22 @@
 		<meta charset="utf-8">
 		<title></title>
 		<style>
+			/* html { 
+			        -webkit-filter: grayscale(100%); 
+			        -moz-filter: grayscale(100%); 
+			        -ms-filter: grayscale(100%); 
+			        -o-filter: grayscale(100%); 
+			        filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);  
+			        _filter:none; 
+			    } */
 			@keyframes move {
 				0% {
-					background-position-x: -120px;
+					background-position-x: -80px;
 					background-position-y: -200px;
 				}
 
 				100% {
-					background-position-x: -20px;
+					background-position-x: -10px;
 					background-position-y: -180px;
 				}
 			}
@@ -25,8 +33,9 @@
 			body {
 				overflow: hidden;
 				position: relative;
-				background: url(a.jpg) no-repeat center;
-				background-size: cover;
+				background:#000;
+				/* background: url(a.jpg) no-repeat center; */
+				/* background-size: cover; */
 				font-family: "楷体";
 				font-size: 20px;
 			}
@@ -53,9 +62,9 @@
 			}
 
 			.title {
-				font-size: 30px;
-				height: auto;
-				width: auto;
+				margin-left: 10%;
+				font-size: 36px;
+				font-weight: bold;
 				background: url(active.webp) no-repeat;
 				background-origin: border-box;
 				-webkit-background-clip: text;
@@ -150,8 +159,8 @@
 	</head>
 
 	<body>
-		<div class="title">私たちの記念</div>
 		<div class="home">
+			<div class="title">私たちの記念</div>
 			<div id="welcome"></div>
 			<div class="contain active">
 				<div class="home-menu">

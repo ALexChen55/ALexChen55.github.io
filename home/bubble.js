@@ -23,9 +23,9 @@ function randomNum(minNum, maxNum) {
   setInterval(() => {
     var bubble = document.createElement("div");
     var left = randomNum(0, 100);
-    var animation = randomNum(15, 35); //
-    var size = randomNum(20, 36);
-    var opacity = randomNum(5, 30) / 100;
+    var animation = randomNum(20, 100); //
+    var size = randomNum(40, 100);
+    var opacity = randomNum(1, 30) / 10;
     var r = randomNum(150, 255);
     var g = randomNum(150, 255);
     var b = randomNum(150, 255);
@@ -38,7 +38,7 @@ function randomNum(minNum, maxNum) {
         size +
         "px;left:" +
         left +
-        "vw;bottom: 0;background: rgba(" +
+        "vw;bottom: 0;box-shadow: 0 0 6px rgba(" +
         r +
         ", " +
         g +
@@ -46,14 +46,14 @@ function randomNum(minNum, maxNum) {
         b +
         ", " +
         opacity +
-        ");border-radius: 50%;animation:bubble-up " +
+        ") inset;border-radius: 50%;animation:bubble-up " +
         animation +
         "s 1s forwards;"
     );
     bubbleBox.appendChild(bubble);
-    setTimeout(() => {
-      bubbleBox.removeChild(bubble);
-    }, 15000); //
-  }, 500); //
+    if (bubbleBox.children.length>=10) {
+		bubbleBox.removeChild(bubbleBox.children[0]);
+	}
+  }, 2000); //
   document.body.appendChild(bubbleBox);
 })();
