@@ -25,7 +25,7 @@ function randomNum(minNum, maxNum) {
     var left = randomNum(0, 100);
     var animation = randomNum(20, 100); //
     var size = randomNum(40, 100);
-    var opacity = randomNum(1, 30) / 10;
+    var opacity = randomNum(3, 50) / 10;
     var r = randomNum(150, 255);
     var g = randomNum(150, 255);
     var b = randomNum(150, 255);
@@ -38,7 +38,7 @@ function randomNum(minNum, maxNum) {
         size +
         "px;left:" +
         left +
-        "vw;bottom: 0;box-shadow: 0 0 6px rgba(" +
+        "vw;bottom: 0;box-shadow: 0 0 4px rgba(" +
         r +
         ", " +
         g +

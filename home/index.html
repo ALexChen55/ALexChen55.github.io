@@ -4,176 +4,26 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<style>
-			/* html { 
-			        -webkit-filter: grayscale(100%); 
-			        -moz-filter: grayscale(100%); 
-			        -ms-filter: grayscale(100%); 
-			        -o-filter: grayscale(100%); 
-			        filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);  
-			        _filter:none; 
-			    } */
-			@keyframes move {
-				0% {
-					background-position-x: -80px;
-					background-position-y: -200px;
-				}
-
-				100% {
-					background-position-x: -10px;
-					background-position-y: -180px;
-				}
-			}
-
-			* {
-				margin: 0;
-				padding: 0;
-			}
-
-			body {
-				overflow: hidden;
-				position: relative;
-				background-image: repeating-linear-gradient(#eee 0%,#999 20%,#666 60%,#333 100%);
-				/* background: url(a.jpeg) no-repeat center; */
-				/* background-size: cover; */
-				font-family: "楷体";
-				font-size: 20px;
-			}
-
-			.home {
-				width: 100vw;
-				height: 100vh;
-			}
-
-			.home .contain.active {
-				height: 80%;
-				width: 80%;
-				bottom: 10%;
-				left: 10%;
-			}
-
-			.home .contain {
-				position: absolute;
-				bottom: 10%;
-				left: 10px;
-				height: 80%;
-				width: 20px;
-				transition: all .8s ease-in-out;
-			}
-
-			.title {
-				margin-left: 10%;
-				font-size: 36px;
-				font-weight: bold;
-				background: url(active.webp) no-repeat;
-				background-origin: border-box;
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				animation: move 2s alternate infinite;
-			}
-
-			.home .contain .home-menu {
-				width: 20px;
-				height: 100%;
-				border-radius: 20px;
-				position: relative;
-				overflow: hidden;
-				transition: all .8s ease-in-out;
-				box-shadow: 0 0 25px rgba(255, 255, 255, .2);
-				/* box-shadow:0 0.3px 0.7px rgba(0, 0, 0, 0.126), 0 0.9px 1.7px rgba(0, 0, 0, 0.179), 0 1.8px 3.5px rgba(0, 0, 0, 0.224), 0 3.7px 7.3px rgba(0, 0, 0, 0.277), 0 10px 20px rgba(0, 0, 0, 0.4); */
-				backdrop-filter: blur(20px);
-			}
-
-			.home .contain.active .home-menu {
-				width: 100%;
-				height: 100%;
-			}
-
-			.home .contain.active .home-menu-content,
-			.home .contain.active .title {
-				display: inline-block;
-			}
-
-			.home .contain .home-menu-content,
-			.home .contain .title {
-				display: none;
-			}
-
-			.home-menu-content {
-				width: 90%;
-				height: 90%;
-				border-radius: 10px;
-				color: #fff;
-				position: absolute;
-				top: 5%;
-				left: 5%;
-
-			}
-
-			.home-menu-content>div span:hover {
-				text-decoration: underline;
-				padding-left: 5px;
-			}
-
-			.home-menu-content>div span {
-				width: 200px;
-				line-height: 40px;
-				text-align: left;
-				display: inline-block;
-				font-size: 14px;
-				padding: 2px 0;
-				margin-top: 10px;
-				transition: all .5s ease-in;
-				position: relative;
-			}
-
-			.home-menu-content>div span a {
-				text-decoration: none;
-				color: #fff;
-			}
-
-			.toggle {
-				position: absolute;
-				top: 50%;
-				text-align: center;
-				right: -32px;
-				color: #fff;
-				transform: translate(0, -50%);
-				display: inline-block;
-				width: 30px;
-				height: 30px;
-				border-radius: 50%;
-				line-height: 1.5;
-				background-color: rgba(255, 255, 255, .4);
-			}
-
-			.welcome {
-				pointer-events: none;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 0;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="./index.css"/>
 	</head>
 
 	<body>
 		<div class="home">
-			<div class="title">私たちの記念</div>
+			<div class="title font-active">私たちの記念</div>
 			<div id="welcome"></div>
 			<div class="contain active">
 				<div class="home-menu">
 					<div class="home-menu-content">
-						<div><span><a href="https://alexchen55.github.io/share-blog">首页</a></span></div>
-						<div><span>优雅的bili | 可爱的bolo</span></div>
-						<div><span>优雅的bili | 可爱的bolo</span></div>
-						<div><span>优雅的bili | 可爱的bolo</span></div>
-						<div><span>优雅的bili | 可爱的bolo</span></div>
+						<div class="home-menu-content-left">
+							<div><span><a href="https://alexchen55.github.io/share-blog">首页</a></span></div>
+						</div>
+						<div class="home-menu-content-right">
+							
+						</div>
 					</div>
 				</div>
 				<span class="toggle">
+					<i class="bottom"></i>
 				</span>
 			</div>
 		</div>
@@ -188,10 +38,10 @@
 				toggle.onclick = function() {
 					if (contain.className.indexOf("active") != -1) {
 						contain.className = 'contain';
-						// toggle.innerHTML = "<";
+						toggle.children[0].className = 'top';
 					} else {
 						contain.className = 'contain active';
-						// toggle.innerHTML = ">";
+						toggle.children[0].className = 'bottom';
 					}
 				}
 			})()
