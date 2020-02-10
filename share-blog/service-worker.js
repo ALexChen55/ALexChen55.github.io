@@ -43,75 +43,127 @@ self.__precacheManifest = [
   },
   {
     "url": "404.html",
-    "revision": "c2fac0574d5c8980e64a9563a1ca0ee0"
+    "revision": "68aa07f385200d8628655d689d062260"
   },
   {
     "url": "512.png",
     "revision": "6a851b845d82108acff7cfe119efcf97"
   },
   {
-    "url": "assets/css/0.styles.7d359c0c.css",
-    "revision": "f484f7aa8f2baea93e4de16dfcf1b65c"
+    "url": "assets/css/0.styles.1104ab03.css",
+    "revision": "35dfcd22da56eb0ef7fb1c43c760b2b8"
   },
   {
     "url": "assets/img/search.83621669.svg",
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/10.7268d9d4.js",
-    "revision": "7b1e60b76fbd30510034d274f14a01b9"
+    "url": "assets/js/10.d298a940.js",
+    "revision": "0cfe709502e79cc3acd59f8cbd53189d"
   },
   {
-    "url": "assets/js/11.3800256b.js",
-    "revision": "e69c84e64b3910f9d706ebf3111a7070"
+    "url": "assets/js/11.74822f33.js",
+    "revision": "334ec7638931d1664e7be33cc5d9df15"
   },
   {
-    "url": "assets/js/2.ed449c4e.js",
-    "revision": "af93a50d96a9a9b8b5a7363491bb7eeb"
+    "url": "assets/js/12.da23e48e.js",
+    "revision": "fcef4d377fb8be9084b938ec98405ea3"
   },
   {
-    "url": "assets/js/3.e2e3c932.js",
-    "revision": "643dfa9fa82bf79b5e184657428a7160"
+    "url": "assets/js/13.39f35035.js",
+    "revision": "3bc01393c6dd4b1480d5ab63b7213750"
   },
   {
-    "url": "assets/js/4.bde6d292.js",
-    "revision": "c958ed80d6a5ef753afa0905aee3b59d"
+    "url": "assets/js/14.3f43023f.js",
+    "revision": "e7fb40d7bcccfc1cc067e1ea1ec0a0b8"
   },
   {
-    "url": "assets/js/5.5de58e9f.js",
-    "revision": "35716bd7be92c6ae52b45b16e615fd36"
+    "url": "assets/js/15.b624a3b2.js",
+    "revision": "fe6154bd1e25ba36270ebbfb7df18f13"
   },
   {
-    "url": "assets/js/6.fa582414.js",
-    "revision": "8103e04fca77c66d9cdc2d8db04f62bb"
+    "url": "assets/js/16.923ec85c.js",
+    "revision": "a751efefb2213dda629816225e60c14c"
   },
   {
-    "url": "assets/js/7.d72a233f.js",
-    "revision": "c52c15845f7f229ff166f2f71a06db8f"
+    "url": "assets/js/17.836a93a7.js",
+    "revision": "521e8ba37450a1281891109c49d2d94c"
   },
   {
-    "url": "assets/js/8.521d24cb.js",
-    "revision": "56e1e8d030292336dd9e2fce2d2a8688"
+    "url": "assets/js/18.359e8b46.js",
+    "revision": "b529920a2ecc29d05cd30a99543f1afb"
   },
   {
-    "url": "assets/js/9.455ff84d.js",
-    "revision": "84b8145d8da289ddc5b8bf3c5557221f"
+    "url": "assets/js/2.626f6268.js",
+    "revision": "86a5c1213b0981fe9802335b89c9d460"
   },
   {
-    "url": "assets/js/app.42a3e073.js",
-    "revision": "210f3e114fb8e86f702ed3edf1e5eba2"
+    "url": "assets/js/3.82bdc1ec.js",
+    "revision": "282067c9bce5b58b9455d7f185650545"
   },
   {
-    "url": "blog/index.html",
-    "revision": "20da74a7dd59efd0843394d12855f197"
+    "url": "assets/js/4.02c0e270.js",
+    "revision": "ac6e1dd2366b055e4a01d99435437508"
   },
   {
-    "url": "blog/使用 VuePress 搭建个人博客.html",
-    "revision": "5cb363a3b5541e6bdb0e83124d46a25f"
+    "url": "assets/js/5.5dd70e70.js",
+    "revision": "619cf999b268f529d42a8da91fca4569"
+  },
+  {
+    "url": "assets/js/6.7338e818.js",
+    "revision": "db3be6db0cdc78058307e476d0f3acbf"
+  },
+  {
+    "url": "assets/js/7.eef7ee82.js",
+    "revision": "9a67e190ea4b082fbf778df700a764f7"
+  },
+  {
+    "url": "assets/js/8.fb16906e.js",
+    "revision": "987224be8a254a2a9c184a8e9e2826fd"
+  },
+  {
+    "url": "assets/js/9.ca1f2ada.js",
+    "revision": "7dc5c6b26c47a81f1adc16c618de277f"
+  },
+  {
+    "url": "assets/js/app.913155c5.js",
+    "revision": "f400a8026d29aeb15cd26d72aa1a9427"
+  },
+  {
+    "url": "hobby/index.html",
+    "revision": "1c5c0d73a3fddf6794e4d6e73c7a6291"
   },
   {
     "url": "index.html",
-    "revision": "93289d70df76af22a49813feef4b5479"
+    "revision": "d55309115fecdc0f86d0599b1f477a23"
+  },
+  {
+    "url": "major/index.html",
+    "revision": "4eeb36032b85d0a4612b60ba07105211"
+  },
+  {
+    "url": "major/others/index.html",
+    "revision": "2f1370ca92c0895076e81b349c5cec61"
+  },
+  {
+    "url": "major/others/使用 VuePress 搭建个人博客.html",
+    "revision": "77f049a250f6dd51743dcc4bcfb767e8"
+  },
+  {
+    "url": "major/others/计算机三级网络技术考过指南.html",
+    "revision": "a5a96204e779776a82b35f6e8097a54a"
+  },
+  {
+    "url": "major/react/index.html",
+    "revision": "c21420bbcd81a64410877d2774ceea83"
+  },
+  {
+    "url": "major/vue/index.html",
+    "revision": "a673fbecfb0429809244016e55c0275d"
+  },
+  {
+    "url": "video/index.html",
+    "revision": "3f7e981a07bc3da1d738f7dc98b9f831"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
