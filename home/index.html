@@ -3,8 +3,10 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="./index.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		<title>私たちの記念</title>
+		<link rel="stylesheet" type="text/css" href="./index.css" />
+		<link rel="stylesheet" href="./iconfont/iconfont.css">
 	</head>
 
 	<body>
@@ -15,7 +17,18 @@
 				<div class="home-menu">
 					<div class="home-menu-content">
 						<div class="home-menu-content-top">
-							<div class="font-active">记录生活记录你</div>
+							<div class="font-active">
+								记录生活记录你
+							</div>
+							<div>
+								<div class="player">
+									<span class="iconfont icon-yinliang-di"></span>
+									<span class="iconfont icon-yinliang-guan"></span>
+								</div>
+								<audio style="display: none;" id="suvinior" src="./suvinior.mp3">
+									当前浏览器不支持audio
+								</audio>
+							</div>
 						</div>
 						<div class="home-menu-content-left">
 							<a class="tag" href="https://alexchen55.github.io/share-blog">首页</a>
@@ -23,12 +36,6 @@
 							<a class="tag" href="https://alexchen55.github.io/share-blog">首页</a>
 							<a class="tag" href="https://alexchen55.github.io/share-blog">首页</a>
 							<a class="tag" href="https://alexchen55.github.io/share-blog">首页</a>
-						</div>
-						<div class="home-menu-content-right">
-							<img src="./active.webp">
-							<audio id="suvinior" src="./suvinior.mp3" controls>
-								当前浏览器不支持audio
-							</audio>
 						</div>
 					</div>
 				</div>
@@ -45,6 +52,8 @@
 			(function() {
 				var toggle = document.getElementsByClassName("toggle")[0];
 				var contain = document.getElementsByClassName("contain")[0];
+				var pause = document.getElementsByClassName("icon-yinliang-di")[0];
+				var play = document.getElementsByClassName("icon-yinliang-guan")[0];
 				toggle.onclick = function() {
 					if (contain.className.indexOf("active") != -1) {
 						contain.className = 'contain';
@@ -54,6 +63,17 @@
 						toggle.children[0].className = 'bottom';
 					}
 				}
+				play.onclick = function() {
+					document.getElementById('suvinior').play();
+					play.style.display = 'none';
+					pause.style.display = 'block';
+				}
+				pause.onclick = function() {
+					document.getElementById('suvinior').pause();
+					pause.style.display = 'none';
+					play.style.display = 'block';
+				}
+
 			})()
 		</script>
 	</body>

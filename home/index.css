@@ -136,7 +136,8 @@ body {
 }
 
 .home-menu-content .home-menu-content-top{
-	width: 100%;
+	width: 80%;
+	margin-left: 10%;
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
@@ -145,7 +146,16 @@ body {
 	font-weight: bold;
 	font-size: 22px;
 }
-.home .contain .home-menu-content .home-menu-content-left,.home .contain .home-menu-content .home-menu-content-right{
+
+.home .contain.active .home-menu-content .home-menu-content-top{
+	margin-top: 20px;
+	border-left:1px solid rgba(255,255,255,.2);
+	border-right:1px solid rgba(255,255,255,.2);
+	border-bottom:1px solid rgba(255,255,255,.2);
+	position: relative;
+}
+
+.home .contain .home-menu-content .home-menu-content-left{
 	display: none;
 	overflow: hidden;
 }
@@ -153,36 +163,52 @@ body {
 .home .contain.active .home-menu-content .home-menu-content-left{
 	display: flex;
 	overflow: visible;
+	height: calc(100% - 70px);
 }
-.home .contain.active .home-menu-content .home-menu-content-right{
-	display: inline-block;
-	overflow: visible;
-}
-
 .home-menu-content .home-menu-content-left{
-	width: 60%;
-	height: calc(100% - 40px);
-	display: flex;
-	flex-flow: column nowrap;
+	width: 80%;
+	flex-flow: column wrap;
 	justify-content: flex-start;
 	align-items: center;
+	margin-left: 10%;
 }
 
-.home-menu-content .home-menu-content-right{
-	width: 40%;
-	height: calc(100% - 40px);
-	position: relative;
+.home .contain.active .player,.home .contain.active .player > div{
+	position: absolute;
+	top: 35px;
+	right: 0;
 }
-.home-menu-content .home-menu-content-right img{
-	width: 100%;
-	height: auto;
+.player,.player > div{
+	position: absolute;
+	top: 17px;
+	right: 17px;
 }
 
+.player .iconfont{
+	font-size: 30px;
+	height: 40px;
+	line-height: 40px;
+	width: 40px;
+	text-align: center;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color:rgba(255,255,255,.6);
+}
+.icon-yinliang-di::before{
+	margin-left: 3px;
+}
 #suvinior{
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	height: 35px;
+}
+
+.player .iconfont.icon-yinliang-di{
+	display: none;
 }
 
 .home-menu-content .tag{
@@ -197,8 +223,11 @@ body {
 	box-shadow: 0 0 5px rgba(255,255,255,.1) inset;
 	border-radius: 6px;
 	margin-top: 10px;
+	transition: all .3s ease-in;
 }
 .home-menu-content .tag:hover{
 	color: rgba(255,255,255,1);
 	box-shadow: 0 0 5px rgba(255,255,255,.4) inset;
+	transform: scale(1.2);
+	font-weight: bold;
 }

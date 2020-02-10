@@ -1,0 +1,23 @@
+{
+  "id": "1632900",
+  "name": "博客",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5330673",
+      "name": "音量-低",
+      "font_class": "yinliang-di",
+      "unicode": "e7b9",
+      "unicode_decimal": 59321
+    },
+    {
+      "icon_id": "5330684",
+      "name": "音量-关",
+      "font_class": "yinliang-guan",
+      "unicode": "e7bb",
+      "unicode_decimal": 59323
+    }
+  ]
+}
