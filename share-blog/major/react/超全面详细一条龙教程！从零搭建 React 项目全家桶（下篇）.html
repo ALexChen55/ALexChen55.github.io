@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>超全面详细一条龙教程！从零搭建 React 项目全家桶（下篇） | 私たちの記念</title>
+    <meta name="description" content="React 是近几年来前端项目开发非常火的一个框架，其背景是 Facebook 团队的技术支持，市场占有率也很高。很多初学者纠结一开始是学 react 还是 vue。个人觉得，有时间的话，最好两个都掌握一下。从学习难度上来说，react 要比 vue 稍难一些。万事开头难，但是掌握了 react 对于大幅提高前端技能还是非常有帮助的。本文一步步详细梳理了从创建 react、精简项目、集成插件、初步优化等过程。对于 react 开发者来说，能够节省很多探索的时间。下面请跟着我来一步步操作。">
+    <meta name="generator" content="VuePress 1.3.0">
+    <link rel="icon" href="/share-blog/512.png">
+  <link rel="manifest" href="/share-blog/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/share-blog/assets/css/0.styles.faeb6631.css" as="style"><link rel="preload" href="/share-blog/assets/js/app.44a06aa1.js" as="script"><link rel="preload" href="/share-blog/assets/js/4.76e0b0a9.js" as="script"><link rel="preload" href="/share-blog/assets/js/2.c3848be1.js" as="script"><link rel="preload" href="/share-blog/assets/js/17.9c247081.js" as="script"><link rel="preload" href="/share-blog/assets/js/7.51a66021.js" as="script"><link rel="prefetch" href="/share-blog/assets/js/10.1f2e387f.js"><link rel="prefetch" href="/share-blog/assets/js/11.339db49f.js"><link rel="prefetch" href="/share-blog/assets/js/12.a8e04166.js"><link rel="prefetch" href="/share-blog/assets/js/13.6b7f6c7b.js"><link rel="prefetch" href="/share-blog/assets/js/14.da403a23.js"><link rel="prefetch" href="/share-blog/assets/js/15.9a4f1697.js"><link rel="prefetch" href="/share-blog/assets/js/16.e572b42b.js"><link rel="prefetch" href="/share-blog/assets/js/18.4035fee7.js"><link rel="prefetch" href="/share-blog/assets/js/19.3c32aa1c.js"><link rel="prefetch" href="/share-blog/assets/js/20.831a2f73.js"><link rel="prefetch" href="/share-blog/assets/js/21.0131d159.js"><link rel="prefetch" href="/share-blog/assets/js/3.64ccb596.js"><link rel="prefetch" href="/share-blog/assets/js/5.0e8bb94d.js"><link rel="prefetch" href="/share-blog/assets/js/6.41a8c27c.js"><link rel="prefetch" href="/share-blog/assets/js/8.a59ce9b8.js"><link rel="prefetch" href="/share-blog/assets/js/9.0333a404.js">
+    <link rel="stylesheet" href="/share-blog/assets/css/0.styles.faeb6631.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/share-blog/" class="home-link router-link-active"><!----> <span class="site-name">私たちの記念</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/share-blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专业" class="dropdown-title"><span class="title">专业</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/share-blog/major/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/react/" class="nav-link router-link-active">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/others/" class="nav-link">
+  others
+</a></li></ul></div></div><div class="nav-item"><a href="/share-blog/hobby/" class="nav-link">
+  爱好
+</a></div><div class="nav-item"><a href="/share-blog/video/" class="nav-link">
+  影视
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/share-blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专业" class="dropdown-title"><span class="title">专业</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/share-blog/major/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/react/" class="nav-link router-link-active">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/others/" class="nav-link">
+  others
+</a></li></ul></div></div><div class="nav-item"><a href="/share-blog/hobby/" class="nav-link">
+  爱好
+</a></div><div class="nav-item"><a href="/share-blog/video/" class="nav-link">
+  影视
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>超全面详细一条龙教程！从零搭建 React 项目全家桶（下篇）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#先睹为快" class="sidebar-link">先睹为快</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-redux-及相关插件" class="sidebar-link">7 Redux 及相关插件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-1-安装-redux" class="sidebar-link">7.1 安装 redux</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-2-安装-react-redux" class="sidebar-link">7.2 安装 react-redux</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-3-安装-redux-thunk" class="sidebar-link">7.3 安装 redux-thunk</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-4-安装浏览器-redux-插件" class="sidebar-link">7.4 安装浏览器 Redux 插件</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-5-创建-store" class="sidebar-link">7.5 创建 store</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-6-复杂项目-store-分解" class="sidebar-link">7.6 复杂项目 store 分解</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-7-对接-react-redux-与-store" class="sidebar-link">7.7 对接 react-redux 与 store</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-8-启动-redux-devtools" class="sidebar-link">7.8 启动 Redux DevTools</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_7-9-安装使用-immutable" class="sidebar-link">7.9 安装使用 immutable</a></li></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_8-mock-js-安装与使用" class="sidebar-link">8 Mock.js 安装与使用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_9-解决本地开发跨域问题" class="sidebar-link">9 解决本地开发跨域问题</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_10-其他常用工具" class="sidebar-link">10 其他常用工具</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89.html#_11-附赠章节：集成-ant-design" class="sidebar-link">11 附赠章节：集成 Ant Design</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>在开始前，先回顾下【上篇】介绍的内容：</p> <p><strong>1 创建 React-APP</strong></p> <p><strong>2 精简项目</strong></p> <p>2.1 删除文件</p> <p>2.2 简化代码</p> <p>2.3 使用 Fragment 去掉组件外层标签</p> <p><strong>3 项目目录结构</strong></p> <p>3.1 引入全局公用样式</p> <p>3.2 支持 Sass/Less/Stylus</p> <p><strong>4 路由</strong></p> <p>4.1 页面构建</p> <p>4.2 使用 react-router-dom</p> <p>4.3 路由跳转</p> <p><strong>5 组件引入</strong></p> <p>5.1 创建 header 组件</p> <p>5.2 引入 Header 组件</p> <p>5.3 组件传参</p> <p><strong>6 React Developer Tools 浏览器插件</strong></p> <p>在本次的【下篇】中，继续分享以下内容：</p> <h2 id="先睹为快"><a href="#先睹为快" class="header-anchor">🖌</a> 先睹为快</h2> <p><strong>7 Redux 及相关插件</strong></p> <p>7.1 安装 redux</p> <p>7.2 安装 react-redux</p> <p>7.3 安装 redux-thunk</p> <p>7.4 安装浏览器 Redux 插件</p> <p>7.5 创建 store</p> <p>7.6 复杂项目 store 分解</p> <p>7.7 对接 react-redux 与 store</p> <p>7.8 启动 Redux DevTools</p> <p>7.9 安装使用 immutable</p> <p><strong>8 Mock.js 安装与使用</strong></p> <p><strong>9 解决本地开发跨域问题</strong></p> <p><strong>10 其他常用工具</strong></p> <p>11 附赠章节：集成 Ant Design</p> <p>11.1 安装 Ant Design</p> <p>11.2 实现按需加载</p> <p>11.3 自定义主题颜色</p> <h2 id="_7-redux-及相关插件"><a href="#_7-redux-及相关插件" class="header-anchor">🖌</a> 7 Redux 及相关插件</h2> <p>做过 vue 开发的同学都知道 vuex，react 对应的工具就是 Redux，当然还有一些附属工具，比如 react-redux、redux-thunk、immutable。</p> <p>redux 涉及内容篇幅较多，可以单独作为一次分享。本次分享篇幅有限，仅简要介绍下安装部署流程，如有看不懂的地方可先跳过或自行查阅官方文档。</p> <h3 id="_7-1-安装-redux"><a href="#_7-1-安装-redux" class="header-anchor">🖌</a> 7.1 安装 redux</h3> <p>执行：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install  redux --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>仅安装 redux 也是可以使用的，但是比较麻烦。redux 里更新 store 里的数据，需要手动订阅 (subscribe) 更新。可以借助另一个插件（react-redux）提高开发效率。</p> <h3 id="_7-2-安装-react-redux"><a href="#_7-2-安装-react-redux" class="header-anchor">🖌</a> 7.2 安装 react-redux</h3> <p>执行：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install react-redux --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>react-redux 允许通过 connect 方法，将 store 中的数据映射到组件的 props，省去了 store 订阅。原 state 中读取 store 的属性改用 props 读取。</p> <p>由于 store（7.5 小节）还没讲到，react-redux 使用方法在 7.6 小节介绍。</p> <h3 id="_7-3-安装-redux-thunk"><a href="#_7-3-安装-redux-thunk" class="header-anchor">🖌</a> 7.3 安装 redux-thunk</h3> <p>执行：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install redux-thunk --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>redux-thunk 允许在 actionCreators 里返回函函数。这样可以把业务逻辑（例如接口请求）集中写在 actionCreator.js，方便复用的同时，可以使组件的主文件更简洁。</p> <h3 id="_7-4-安装浏览器-redux-插件"><a href="#_7-4-安装浏览器-redux-插件" class="header-anchor">🖌</a> 7.4 安装浏览器 Redux 插件</h3> <p>为了更方便跟踪 redux 状态，建议安装 chrome 插件。</p> <p>先科学上网，在 chrome 网上应用店里搜索 “Redux DevTools” 并安装。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/3/1700920f3046b748?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>安装完成后还不能直接使用，需要在项目代码中进行配置。接下来进行说明。</p> <h3 id="_7-5-创建-store"><a href="#_7-5-创建-store" class="header-anchor">🖌</a> 7.5 创建 store</h3> <p>安装以上各种插件后，可以 store 用来管理状态数据了。</p> <p>如果项目比较简单，只有一两个页面，可以只创建一个总 store 管理整体项目。目录结构参考如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    ├─ /src   
++   |  ├─ /store
++   |  |  ├─ actionCreators.js
++   |  |  ├─ contants.js       &lt;-- 定义方法的常量
++   |  |  ├─ index.js
++   |  |  └─ reducer.js
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>以下是各文件的代码示例：</p> <p>src/store/actionCreators.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import * as constans from './constants'
+
+export const getData = (data) =&gt; ({
+  type: constans.SET_DATA,
+  data
+})
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>src/store/contants.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export const SET_DATA = 'SET_DATA'
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>src/store/index.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { createStore, applyMiddleware, compose } from 'redux'
+import reducer from './reducer'
+import thunk from 'redux-thunk'
+
+// 这里让项目支持浏览器插件Redux DevTools
+const composeEnhancers = typeof window === 'object' &amp;&amp;
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose
+
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk)
+);
+
+const store = createStore(
+  reducer,
+  enhancer
+)
+
+export default store
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><blockquote><p>以上是 store 的核心代码，支持了 Redux DevTools。同时，利用 redux 的集成中间件（applyMiddleware）功能将 redux-thunk 集成进来，最终创建了 store。</p></blockquote> <p>src/store/reducer.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import * as constants from './constants'
+
+// 初始默认的state
+const defaultState = {
+    myData: null
+}
+
+export default (state = defaultState, action) =&gt; {
+    // 由于state是引用型，不能直接修改，否则是监测不到state发生变化的。因此需要先复制一份进行修改，然后再返回新的state。
+    let newState = Object.assign({}, state)
+    switch(action.type) {
+        case constants.SET_DATA:
+            newState.myData = action.data
+            return newState
+        default:
+            return state
+    }
+}
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>以上代码，我们在 store 设置了一个 myData。如何更好地解决 state 修改问题，在 7.8 小节会提到。</p> <h3 id="_7-6-复杂项目-store-分解"><a href="#_7-6-复杂项目-store-分解" class="header-anchor">🖌</a> 7.6 复杂项目 store 分解</h3> <p>应对更多页面的项目，如果数据都集中放在一个 store 里，其维护成本非常高。接下来分享下如何将 store 分解到各个组件中。</p> <p>一般来说，每个组件有自己的 store，再由 src 下的 store 作为总集，集成每个组件的 store。</p> <p>以 header 和 login 两个组件为例，分别创建组件自己的 store。</p> <p>header 的 store 目录结构如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    |  |  ├─ /components
+    |  |  |  ├─ /header
++   |  |  |  |  ├─ /store
++   |  |  |  |  |  ├─ actionCreators.js
++   |  |  |  |  |  ├─ contants.js      
++   |  |  |  |  |  ├─ index.js
++   |  |  |  |  |  └─ reducer.js
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>组件 store 下的 index.js 代码如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import reducer from './reducer'
+import * as actionCreators from './actionCreators'
+import * as constants from './constants'
+
+export { reducer, actionCreators, constants}
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>其实就是把组件 store 下的其他文件集中起来作为统一输出口。</p> <p>组件 store 下的 contants.js 代码如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const ZONE = 'components/header/'
+
+export const SET_DATA = ZONE + 'SET_DATA'
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>ZONE 是用来避免与其他组件的 contants 重名。</p> <p>同样的方式，在 login 下进行创建 store（不再赘述）。</p> <p>然后修改项目 src 下的总 store，目录结构变动如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    ├─ /src   
+    |  ├─ /store
+-   |  |  ├─ actionCreators.js &lt;-- 删除
+-   |  |  ├─ contants.js       &lt;--删除
+    |  |  ├─ index.js
+    |  |  └─ reducer.js
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>src/store/index.js 重写如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { combineReducers } from 'redux'
+
+import { reducer as loginReducer } from '../pages/login/store'
+import { reducer as headerReducer } from '../components/header/store'
+
+const reducer = combineReducers({
+    login: loginReducer,
+    header: headerReducer
+})
+
+export default reducer
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>以上代码的作用就是把 login 和 header 的 store 引入，然后通过 combineReducers 合并在一起，并分别加上唯一的对象 key 值。</p> <p>这样的好处非常明显：</p> <ol><li>避免各组件的 store 数据互相污染</li> <li>组件独立维护自己的 store，减少维护成本</li></ol> <p>非常建议使用这种方式维护 store。</p> <h3 id="_7-7-对接-react-redux-与-store"><a href="#_7-7-对接-react-redux-与-store" class="header-anchor">🖌</a> 7.7 对接 react-redux 与 store</h3> <p>为了方便每个组件都能使用 store，而不用一遍一遍的引用 store。下面来对接 react-redux 与 store。</p> <p>修改 src/index.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React from 'react'
+    import ReactDOM from 'react-dom'
+    import App from './App'
++   import { Provider } from 'react-redux'
++   import store from './store'
+    import './common/style/frame.styl'
+
++   const Apps = (
++       &lt;Provider store={store}&gt;
++           &lt;App /&gt;
++       &lt;/Provider&gt;
++   )
+
+M   ReactDOM.render(Apps, document.getElementById('root'))
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>以上代码就是用 react-redux 提供的 Provider，把 store 传给了整个 App。</p> <p>在需要使用 store 的组件中，要使用 react-redux 提供的 connect 方法对组件进行包装。</p> <p>以 login 为例，修改 src/pages/login/index.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React, { Component } from 'react'
+    import Header from '../../components/header'
++   import { connect } from 'react-redux'
++   import * as actionCreators from './store/actionCreators'
+    import './login.styl'
+
+    class Login extends Component {
+        render() {
+            return (
+                &lt;div class&gt;
+                    &lt;Header /&gt;
+                    &lt;h1&gt;Login page&lt;/h1&gt;
++                   &lt;p&gt;login: myData = {this.props.myData}&lt;/p&gt;
++                   &lt;button onClick={()=&gt; {this.props.getData('123456')}}&gt;更改login的myData&lt;/button&gt;
+                    &lt;button onClick={this.gotoHome.bind(this)}&gt;跳转Home页&lt;/button&gt;
+                &lt;/div&gt;
+            )
+        }
+
+        gotoHome() {
+            this.props.history.push('/home')
+        }
+    }
+
++   // 把store中的数据映射到组件的props
++   const mapStateToProps = (state) =&gt; ({
++       myData: state.getIn(['login', 'myData']),
++   })
+
++   // 把store的Dispatch映射到组件的props
++   const mapDispatchToProps = (dispatch) =&gt; ({
++       getData(data) {
++           const action = actionCreators.getData(data)
++           dispatch(action)
++       }
++   })
+
+M   export default connect(mapStateToProps, mapDispatchToProps)(Login)
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><p>最大的变化就是代码最后一行，被 connect 方法包装了。</p> <p>然后把 store 里的 state 和 dispatch 都映射到了组件的 props。这样可以直接通过 props 进行访问了，store 中数据的变化会直接改变 props 从而触发组件的视图更新。</p> <p>点击按钮后，可以看到页面中显示的 myData 发生了变化。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/3/170092145b7f0fe6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>下面通过 Redux DevTools 进行可视化跟踪查看。</p> <h3 id="_7-8-启动-redux-devtools"><a href="#_7-8-启动-redux-devtools" class="header-anchor">🖌</a> 7.8 启动 Redux DevTools</h3> <p>经过 7.5 小节的设置，7.4 小节的 Redux DevTools 可以正常使用了。点击浏览器右上角的图标，在出现的面板里，可以相信地跟踪查看 store 里各数据的变化，非常方便。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/3/1700921651927c2a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>还可以通过调试工具栏启动 Redux DevTools：</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/3/1700921814587f59?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>具体使用方法这里不赘述了。</p> <h3 id="_7-9-安装使用-immutable"><a href="#_7-9-安装使用-immutable" class="header-anchor">🖌</a> 7.9 安装使用 immutable</h3> <p>在 7.5 小节，提到了 store 里不能直接修改 state，因为 state 是引用类型，直接修改可能导致监测不到数据变化。</p> <p>immutable.js 从字面上就可以明白，immutable 的意思是 “不可改变的”。使用 immutable 创建的数据是不可改变的，对 immutable 数据的任何修改都会返回一个新的 immutable 数据，不会改变原始 immutable 数据。</p> <p>immutable.js 提供了很多方法，非常方便修改对象或数组类型的引用型数据。</p> <p>安装 immutable 和 redux-immutable，执行：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install immutable redux-immutable --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>然后对代码进行改造：</p> <p>src/store/reducer.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>-   import { combineReducers } from 'redux'
++   import { combineReducers } from 'redux-immutable'
+    ...(略)
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>以上代码就是把 combineReducers 换成 redux-immutable 里的。</p> <p>然后修改 src/pages/login/store/reducer.js</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import * as constants from './constants'
++   import { fromJS } from 'immutable'
+
+M   const defaultState = fromJS({
+        myData: null
+M   })
+
++   const getData = (state, action) =&gt; {
++       return state.set('myData', action.data)
++   }
+
+    export default (state = defaultState, action) =&gt; {
+        switch(action.type) {
+            case constants.SET_DATA:
+M               return getData(state, action)
+            default:
+                return state
+        }
+    }
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>immutable 的介入，就是利用 fromJS 方法，把原始的 JS 类型转化为 immutable 类型。</p> <p>由于 state 已经是 immutable 类型了，可以使用 immutable 的 set 方法进行数据修改，并返回一个新的 state。代码简洁很多，不需要手动通过 Object.assign 等方法去复制再处理了。</p> <p>header 组件的代码修改同理不再赘述。</p> <p>immutable 还有很多其他非常使用方法，具体请参阅官方文档：</p> <blockquote><p><a href="https://immutable-js.github.io/immutable-js/" target="_blank" rel="noopener noreferrer">immutable-js.github.io/immutable-j…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <h2 id="_8-mock-js-安装与使用"><a href="#_8-mock-js-安装与使用" class="header-anchor">🖌</a> 8 Mock.js 安装与使用</h2> <p>在开发过程中，为了方便前端独自调试接口，经常使用 Mock.js 拦截 Ajax 请求，并返回预置好的数据。本小节介绍下如何在 react 项目中使用 Mock.js。</p> <p>执行安装：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install mockjs --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>在 src 下新建 mock.js，代码如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import Mock from 'mockjs'
+
+const domain = '/api/'
+
+// 模拟getData接口
+Mock.mock(domain + 'getData', function () {
+    let result = {
+      code: 200,
+      message: 'OK',
+      data: 'test'
+    }
+    return result
+})
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>然后在 src/index.js 中引入 mock.js:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React from 'react'
+    import ReactDOM from 'react-dom'
+    import App from './App'
+    import { Provider } from 'react-redux'
+    import store from './store'
++   import './mock'
+    import './common/style/frame.styl'
+
+    ...（略）
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>如此简单。这样，在项目中请求<code>/api/getData</code>的时候，就会被 Mock.js 拦截，并返回 mock.js 中写好的数据。</p> <h2 id="_9-解决本地开发跨域问题"><a href="#_9-解决本地开发跨域问题" class="header-anchor">🖌</a> 9 解决本地开发跨域问题</h2> <p>在 react 开发环境中，默认启动的是 3000 端口，而后端 API 服务可能在本机的 80 端口，这样在 ajax 请求的时候会出现跨域问题。可以借助 http-proxy-middleware 工具实现反向代理。</p> <p>执行安装：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install http-proxy-middleware --save-dev
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>在 src 下创建 setupProxy.js，代码如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const proxy = require('http-proxy-middleware');
+module.exports = function (app) {
+    app.use(
+        '^/api',
+        proxy({
+            target: 'http://localhost',
+            changeOrigin: true
+        })
+    )
+}
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>这代码的意思就是，只要请求地址是以 &quot;/api&quot; 开头，那就反向代理到 http://localhost 域名下，跨域问题解决！大家可以根据实际需求进行修改。</p> <blockquote><p>※注意：setupProxy.js 设置后，一定要重启项目才生效。</p></blockquote> <h2 id="_10-其他常用工具"><a href="#_10-其他常用工具" class="header-anchor">🖌</a> 10 其他常用工具</h2> <ol><li>Axios - Ajax 请求工具</li></ol> <p>【官网】<a href="https://github.com/axios/axios" target="_blank" rel="noopener noreferrer">github.com/axios/axios<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>【安装命令】</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install axios --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="2"><li>better-scroll - 页面原生滚动体验效果工具</li></ol> <p>【官网】<a href="http://ustbhuangyi.github.io/better-scroll/doc/" target="_blank" rel="noopener noreferrer">ustbhuangyi.github.io/better-scro…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>【安装命令】</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install better-scroll --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="3"><li>react-transition-group - CSS3 动画组合工具</li></ol> <p>【官网】<a href="https://github.com/reactjs/react-transition-group" target="_blank" rel="noopener noreferrer">github.com/reactjs/rea…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>【安装命令】</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install react-transition-group --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="4"><li>react-loadable - 动态加载组件工具</li></ol> <p>【官网】<a href="https://www.npmjs.com/package/react-loadable" target="_blank" rel="noopener noreferrer">www.npmjs.com/package/rea…<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>【安装命令】</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>yarn add react-loadable
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_11-附赠章节：集成-ant-design"><a href="#_11-附赠章节：集成-ant-design" class="header-anchor">🖌</a> 11 附赠章节：集成 Ant Design</h2> <p>Ant Design 是非常好用的前端 UI 库，很多项目都使用了 Ant Design。</p> <p>【官网】</p> <blockquote><p><a href="https://ant.design/index-cn" target="_blank" rel="noopener noreferrer">ant.design/index-cn<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p>本章节内容基于上述章节将 create-react-app 进行 eject 后集成 Ant Design。</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/share-blog/assets/js/app.44a06aa1.js" defer></script><script src="/share-blog/assets/js/4.76e0b0a9.js" defer></script><script src="/share-blog/assets/js/2.c3848be1.js" defer></script><script src="/share-blog/assets/js/17.9c247081.js" defer></script><script src="/share-blog/assets/js/7.51a66021.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>超全面详细一条龙教程！从零搭建 React 项目全家桶（上篇） | 私たちの記念</title>
+    <meta name="description" content="React 是近几年来前端项目开发非常火的一个框架，其背景是 Facebook 团队的技术支持，市场占有率也很高。很多初学者纠结一开始是学 react 还是 vue。个人觉得，有时间的话，最好两个都掌握一下。从学习难度上来说，react 要比 vue 稍难一些。万事开头难，但是掌握了 react 对于大幅提高前端技能还是非常有帮助的。本文一步步详细梳理了从创建 react、精简项目、集成插件、初步优化等过程。对于 react 开发者来说，能够节省很多探索的时间。下面请跟着我来一步步操作。">
+    <meta name="generator" content="VuePress 1.3.0">
+    <link rel="icon" href="/share-blog/512.png">
+  <link rel="manifest" href="/share-blog/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/share-blog/assets/css/0.styles.faeb6631.css" as="style"><link rel="preload" href="/share-blog/assets/js/app.44a06aa1.js" as="script"><link rel="preload" href="/share-blog/assets/js/4.76e0b0a9.js" as="script"><link rel="preload" href="/share-blog/assets/js/2.c3848be1.js" as="script"><link rel="preload" href="/share-blog/assets/js/16.e572b42b.js" as="script"><link rel="preload" href="/share-blog/assets/js/7.51a66021.js" as="script"><link rel="prefetch" href="/share-blog/assets/js/10.1f2e387f.js"><link rel="prefetch" href="/share-blog/assets/js/11.339db49f.js"><link rel="prefetch" href="/share-blog/assets/js/12.a8e04166.js"><link rel="prefetch" href="/share-blog/assets/js/13.6b7f6c7b.js"><link rel="prefetch" href="/share-blog/assets/js/14.da403a23.js"><link rel="prefetch" href="/share-blog/assets/js/15.9a4f1697.js"><link rel="prefetch" href="/share-blog/assets/js/17.9c247081.js"><link rel="prefetch" href="/share-blog/assets/js/18.4035fee7.js"><link rel="prefetch" href="/share-blog/assets/js/19.3c32aa1c.js"><link rel="prefetch" href="/share-blog/assets/js/20.831a2f73.js"><link rel="prefetch" href="/share-blog/assets/js/21.0131d159.js"><link rel="prefetch" href="/share-blog/assets/js/3.64ccb596.js"><link rel="prefetch" href="/share-blog/assets/js/5.0e8bb94d.js"><link rel="prefetch" href="/share-blog/assets/js/6.41a8c27c.js"><link rel="prefetch" href="/share-blog/assets/js/8.a59ce9b8.js"><link rel="prefetch" href="/share-blog/assets/js/9.0333a404.js">
+    <link rel="stylesheet" href="/share-blog/assets/css/0.styles.faeb6631.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/share-blog/" class="home-link router-link-active"><!----> <span class="site-name">私たちの記念</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/share-blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专业" class="dropdown-title"><span class="title">专业</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/share-blog/major/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/react/" class="nav-link router-link-active">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/others/" class="nav-link">
+  others
+</a></li></ul></div></div><div class="nav-item"><a href="/share-blog/hobby/" class="nav-link">
+  爱好
+</a></div><div class="nav-item"><a href="/share-blog/video/" class="nav-link">
+  影视
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/share-blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专业" class="dropdown-title"><span class="title">专业</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/share-blog/major/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/react/" class="nav-link router-link-active">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/share-blog/major/others/" class="nav-link">
+  others
+</a></li></ul></div></div><div class="nav-item"><a href="/share-blog/hobby/" class="nav-link">
+  爱好
+</a></div><div class="nav-item"><a href="/share-blog/video/" class="nav-link">
+  影视
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>超全面详细一条龙教程！从零搭建 React 项目全家桶（上篇）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#先睹为快" class="sidebar-link">先睹为快</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_1-创建-react-app" class="sidebar-link">1 创建 React-APP</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_2-精简项目" class="sidebar-link">2 精简项目</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_2-1-删除文件" class="sidebar-link">2.1 删除文件</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_2-2-简化代码" class="sidebar-link">2.2 简化代码</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_2-3-使用-fragment-去掉组件外层标签" class="sidebar-link">2.3 使用 Fragment 去掉组件外层标签</a></li></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_3-项目目录结构" class="sidebar-link">3 项目目录结构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_3-1-引入全局公用样式" class="sidebar-link">3.1 引入全局公用样式</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_3-2-支持-sass-less-stylus" class="sidebar-link">3.2 支持 Sass/Less/Stylus</a></li></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_4-路由" class="sidebar-link">4 路由</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_4-1-页面构建" class="sidebar-link">4.1 页面构建</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_4-2-使用-react-router-dom" class="sidebar-link">4.2 使用 react-router-dom</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_4-3-路由跳转" class="sidebar-link">4.3 路由跳转</a></li></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_5-组件引入" class="sidebar-link">5 组件引入</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_5-1-创建-header-组件" class="sidebar-link">5.1 创建 header 组件</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_5-2-引入-header-组件" class="sidebar-link">5.2 引入 Header 组件</a></li><li class="sidebar-sub-header"><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_5-3-组件传参" class="sidebar-link">5.3 组件传参</a></li></ul></li><li><a href="/share-blog/major/react/%E8%B6%85%E5%85%A8%E9%9D%A2%E8%AF%A6%E7%BB%86%E4%B8%80%E6%9D%A1%E9%BE%99%E6%95%99%E7%A8%8B%EF%BC%81%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%20React%20%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89.html#_6-react-developer-tools-浏览器插件" class="sidebar-link">6 React Developer Tools 浏览器插件</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>React 是近几年来前端项目开发非常火的一个框架，其背景是 Facebook 团队的技术支持，市场占有率也很高。很多初学者纠结一开始是学 react 还是 vue。个人觉得，有时间的话，最好两个都掌握一下。从学习难度上来说，react 要比 vue 稍难一些。万事开头难，但是掌握了 react 对于大幅提高前端技能还是非常有帮助的。本文一步步详细梳理了从创建 react、精简项目、集成插件、初步优化等过程。对于 react 开发者来说，能够节省很多探索的时间。下面请跟着我来一步步操作。</p> <h2 id="先睹为快"><a href="#先睹为快" class="header-anchor">🖌</a> 先睹为快</h2> <p>正式开始前，先看下通过本次分享，能掌握什么？</p> <ol><li>从零创建 React 项目</li> <li>支持 Sass/Scss/Less/Stylus</li> <li>路由使用：react-router-dom</li> <li>组件的创建与引用</li> <li>React Developer Tools 浏览器插件</li> <li>redux、react-redux 使用</li> <li>redux-thunk</li> <li>store 的创建与使用</li> <li>Redux DevTools 安装与使用</li> <li>immutable.js 使用</li> <li>Mock.js 使用</li> <li>解决本地跨域反向代理</li> <li>其他常用工具汇总</li> <li>超值附赠：集成 Ant Design</li></ol> <p>即使你是新手，跟着操作一遍以后，也可以快速上手 React 项目啦！</p> <blockquote><p>※注：本文代码区域每行开头的 “+” 表示新增，“-”表示删除，“M”表示修改；代码中的 “...” 表示省略。</p></blockquote> <h2 id="_1-创建-react-app"><a href="#_1-创建-react-app" class="header-anchor">🖌</a> 1 创建 React-APP</h2> <p>为了加速 npm 下载速度，先把 npm 设置为淘宝镜像地址。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm config set registry http://registry.npm.taobao.org/
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>也可以使用 cnpm，根据喜好自行选择。</p> <p>通过官方的 create-react-app，找个喜欢的目录，执行：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npx create-react-app react-app
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>命令最后的 react-app 是项目的名称，可以自行更改。</p> <p>稍等片刻即可完成安装。安装完成后，可以使用 npm 或者 yarn 启动项目。</p> <p>进入项目目录，并启动项目：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd react-app
+yarn start  （或者使用npm start）
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>如果没有安装 yarn，可以前往 yarn 中文网站安装：</p> <blockquote><p><a href="https://yarn.bootcss.com/" target="_blank" rel="noopener noreferrer">yarn.bootcss.com/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p>启动后，可以通过以下地址访问项目：</p> <blockquote><p><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer">http://localhost:3000/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005bfe603fd01c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h2 id="_2-精简项目"><a href="#_2-精简项目" class="header-anchor">🖌</a> 2 精简项目</h2> <h3 id="_2-1-删除文件"><a href="#_2-1-删除文件" class="header-anchor">🖌</a> 2.1 删除文件</h3> <p>接下来，删除一般项目中用不到的文件，最简化项目。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    ├─ /node_modules
+    ├─ package.json
+    ├─ /public
+    |  ├─ favicon.ico
+    |  ├─ index.html
+-   |  ├─ logo192.png
+-   |  ├─ logo512.png
+-   |  ├─ mainfest.json
+-   |  └─ robots.txt
+    ├─ README.md
+    ├─ /src
+-   |  ├─ App.css
+    |  ├─ App.js
+-   |  ├─ App.test.js      (jTest自动化测试)
+-   |  ├─ index.css
+-   |  ├─ index.js
+-   |  ├─ logo.svg
+-   |  ├─ serviceWorker.js
+-   |  └─ setuoTests.js    (PWA)
+    └─ yarn.lock
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>以上文件删除后，页面会报错。这是因为相应的文件引用已不存在。需要继续修改代码。</p> <h3 id="_2-2-简化代码"><a href="#_2-2-简化代码" class="header-anchor">🖌</a> 2.2 简化代码</h3> <p>现在目录结构如下，清爽许多：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    ├─ /node_modules
+    ├─ package.json
+    ├─ /public
+    |  ├─ favicon.ico
+    |  └─ index.html
+    ├─ README.md
+    ├─ /src
+    |  ├─ App.js
+    |  └─ index.js
+    └─ yarn.lock
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>逐个修改以下文件：</p> <p>src/App.js 代码简化如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React from 'react'
+
+function App() {
+  return (
+    &lt;div class&gt;
+      &lt;h1&gt;This is React App.&lt;/h1&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>src/index.js 代码简化如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'))
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>public/index.html</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;%PUBLIC_URL%/favicon.ico&quot; /&gt;
+    &lt;meta  /&gt;
+    &lt;title&gt;React App&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>运行效果如下：</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c065ab1b637?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h3 id="_2-3-使用-fragment-去掉组件外层标签"><a href="#_2-3-使用-fragment-去掉组件外层标签" class="header-anchor">🖌</a> 2.3 使用 Fragment 去掉组件外层标签</h3> <p>react 要求每个组件 HTML 的最外层必须是由一个标签包裹，且不能存在并列的标签。例如，在 src/App.js 中，如果是这样就会报错：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> // 以下代码将会报错，最外层不能存在并列的标签。
+ function App() {
+  return (
+    &lt;div class&gt;
+      &lt;h1&gt;This is React App.&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div class&gt;
+      &lt;h1&gt;This is React App-other.&lt;/h1&gt;
+    &lt;/div&gt;
+  )
+}
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>如果确实需要这样的 HTML，并且不想再添加一个父级标签，可以使用 Fragment 作为最外层。代码修改如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>M   import React, { Fragment } from 'react'
+
+    function App() {
+        return (
++           &lt;Fragment&gt;
+                &lt;div class&gt;
+                    &lt;h1&gt;This is React App.&lt;/h1&gt;
+                &lt;/div&gt;
+                &lt;div class&gt;
+                    &lt;h1&gt;This is React App-ohter.&lt;/h1&gt;
+                &lt;/div&gt;
++           &lt;/Fragment&gt;
+        )
+    }
+
+    export default App
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c08f51c9798?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>以上仅为了说明 Fragment 的使用效果。在某些组件嵌套的使用场景下，非常适合使用 Fragment。例如父组件是<code>&lt;table&gt;</code>，而子组件可以用<code>&lt;Fragment&gt;</code>包裹多个<code>&lt;tr&gt;</code>。</p> <h2 id="_3-项目目录结构"><a href="#_3-项目目录结构" class="header-anchor">🖌</a> 3 项目目录结构</h2> <p>项目目录结构可根据项目实际灵活制定。这里分享下我常用的结构，仅供参考。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    ├─ /node_modules
+    ├─ package.json
+    ├─ /public
+    |  ├─ favicon.ico        &lt;-- 网页图标
+    |  └─ index.html         &lt;-- HTML页模板
+    ├─ README.md
+    ├─ /src
+    |  ├─ /common            &lt;-- 全局公用目录
+    |  |  ├─ /fonts          &lt;-- 字体文件目录
+    |  |  ├─ /images         &lt;-- 图片文件目录
+    |  |  ├─ /js             &lt;-- 公用js文件目录
+    |  |  └─ /style          &lt;-- 公用样式文件目录
+    |  |  |  ├─ frame.css    &lt;-- 全部公用样式（import其他css）
+    |  |  |  ├─ reset.css    &lt;-- 清零样式
+    |  |  |  └─ global.css   &lt;-- 全局公用样式
+    |  ├─ /components        &lt;-- 公共模块组件目录
+    |  |  ├─ /header         &lt;-- 头部导航模块
+    |  |  |  ├─ index.js     &lt;-- header主文件
+    |  |  |  └─ header.css   &lt;-- header样式文件
+    |  |  └─ ...             &lt;-- 其他模块
+    |  ├─ /pages             &lt;-- 页面组件目录
+    |  |  ├─ /home           &lt;-- home页目录
+    |  |  |  ├─ index.js     &lt;-- home主文件
+    |  |  |  └─ home.css     &lt;-- home样式文件
+    |  |  ├─ /login          &lt;-- login页目录
+    |  |  |  ├─ index.js     &lt;-- login主文件
+    |  |  |  └─ login.css    &lt;-- login样式文件
+    |  |  └─ ...             &lt;-- 其他页面
+    |  ├─ App.js             &lt;-- 项目主模块
+    |  └─ index.js           &lt;-- 项目入口文件
+    └─ yarn.lock
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="_3-1-引入全局公用样式"><a href="#_3-1-引入全局公用样式" class="header-anchor">🖌</a> 3.1 引入全局公用样式</h3> <p>在 frame.css 里引入其他公用样式： src/common/style/frame.css</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@import './reset.css';
+@import './global.css';
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>然后在 src/index.js 里引入 frame.css</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React from 'react'
+    import ReactDOM from 'react-dom'
+    import App from './App'
++   import './common/style/frame.css'
+
+    ReactDOM.render(&lt;App /&gt;, document.getElementById('root'))
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>如图，页面全局样式已生效。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c0bdb5741d2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h3 id="_3-2-支持-sass-less-stylus"><a href="#_3-2-支持-sass-less-stylus" class="header-anchor">🖌</a> 3.2 支持 Sass/Less/Stylus</h3> <p>工欲善其事必先利其器，这么高大上的 react 怎能好意思用最原始的 css 搭配呢？create-react-app 默认情况下未暴露配置文件。要更灵活配置项目，需要将配置文件暴露出来。</p> <p>执行以下命令，暴露配置文件：</p> <blockquote><p>※注意：暴露配置的文件的操作不可逆！</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm run eject
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>如果之前没有提及 git 的话，可能会报以下错误：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Remove untracked files, stash or commit any changes, and try again
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>需要先在项目根目录下执行：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>git add .
+git commit -m &quot;初始化项目(备注)&quot;
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>稍等片刻，eject 成功，目录变化如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>+   ├─ /config
++   |  ├─ /jest
++   |  ├─ env.js
++   |  ├─ module.js
++   |  ├─ paths.js
++   |  ├─ pnpTs.js
++   |  ├─ webpack.config.js   &lt;-- webpack配置文件
++   |  └─ webpackDevServer.config.js
+    ├─ /node_modules
+    ├─ package.json
+    ├─ /public
+    |  ├─ favicon.ico
+    |  └─ index.html
+    ├─ README.md
++   ├─ /scripts
++   |  ├─ build.js
++   |  ├─ start.js
++   |  └─ test.js
+    ├─ /src
+    |  ├─ /common         &lt;-- 全局公用目录
+    |  ├─ /components     &lt;-- 公共模块组件目录
+    |  ├─ /pages          &lt;-- 页面组件目录
+    |  ├─ App.js          &lt;-- 项目主模块
+    |  └─ index.js        &lt;-- 项目入口文件
+    └─ yarn.lock
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h4 id="_3-2-1-支持-sass-scss"><a href="#_3-2-1-支持-sass-scss" class="header-anchor">🖌</a> 3.2.1 支持 Sass/Scss</h4> <p>eject 后，虽然 package.json 以及 webpack.config.js 里有了 sass 相关代码，但是要正确使用 Sass/Scss，还要再安装 node-sass。</p> <p>执行以下命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install node-sass --save-dev
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>安装完成后，项目已支持 Sass/Scss，可以将原 css 文件后缀名修改为 sacc/scss，别忘了把<code>src/index.js</code>中引入的 frame.css 后缀名修改为 sacc/scss。</p> <h4 id="_3-2-2-支持-less"><a href="#_3-2-2-支持-less" class="header-anchor">🖌</a> 3.2.2 支持 Less</h4> <p>支持 Less 稍微多一点步骤，首先安装 less 和 less-loader：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install less less-loader --save-dev
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>然后修改 config/webpack.config.js：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    // style files regexes
+    const cssRegex = /\.css$/;
+    const cssModuleRegex = /\.module\.css$/;
+    const sassRegex = /\.(scss|sass)$/;
+    const sassModuleRegex = /\.module\.(scss|sass)$/;
++   const lessRegex = /\.less$/;
++   const lessModuleRegex = /\.module\.less$/;
+    ...(略)
+    // Opt-in support for SASS (using .scss or .sass extensions).
+    // By default we support SASS Modules with the
+    // extensions .module.scss or .module.sass
+    {
+        test: sassRegex,
+        exclude: sassModuleRegex,
+        use: getStyleLoaders(
+            {
+                importLoaders: 2,
+                sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
+            },
+            'sass-loader'
+        ),
+        // Don't consider CSS imports dead code even if the
+        // containing package claims to have no side effects.
+        // Remove this when webpack adds a warning or an error for this.
+        // See https://github.com/webpack/webpack/issues/6571
+        sideEffects: true,
+    },
+    // Adds support for CSS Modules, but using SASS
+    // using the extension .module.scss or .module.sass
+    {
+        test: sassModuleRegex,
+        use: getStyleLoaders(
+            {
+                importLoaders: 2,
+                sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
+                modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
+            },
+            'sass-loader'
+        ),
+    },
+    // 以下这里仿照上面sass的代码，配置下less。
++   {
++       test: lessRegex,
++           exclude: lessModuleRegex,
++           use: getStyleLoaders(
++               {
++                   importLoaders: 2,
++                   sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
++               },
++               'less-loader'
++            ),
++           sideEffects: true,
++   },
++   {
++       test: lessModuleRegex,
++       use: getStyleLoaders(
++           {
++               importLoaders: 2,
++               sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
++               modules: {
++                   getLocalIdent: getCSSModuleLocalIdent,
++               },
++           },
++           'less-loader'
++       ),
++   },
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br></div></div><p>修改后需要执行<code>yarn start</code>重启项目。</p> <p>然后将原 css 文件的后缀名修改为 less，<code>src/index.js</code>中引入的 frame.less，页面已正常解析 less。</p> <h4 id="_3-2-3-支持-stylus"><a href="#_3-2-3-支持-stylus" class="header-anchor">🖌</a> 3.2.3 支持 Stylus</h4> <p>支持 Stylus 跟 Less 完全一样，首先安装 stylus 和 stylus-loader：</p> <p>执行以下命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install stylus stylus-loader --save-dev
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>安装完成后，按照上一小节介绍的支持 less 的方法，修改 config/webpack.config.js。完成后重启项目，引入 stylus 文件可以正常解析了。</p> <p>我个人习惯使用 Stylus，因此后续的讲解中使用 Stylus。同时，把 src/common / 下的 style 目录也更名为 stylus。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    ├─ /config
+    ├─ /node_modules
+    ├─ package.json
+    ├─ /public
+    ├─ README.md
+    ├─ /scripts
+    ├─ /src
+    |  ├─ /common       &lt;-- 全局公用目录    
+    |  |  ├─ /fonts       
+    |  |  ├─ /images 
+    |  |  ├─ /js 
+M   |  |  └─ /stylus
+M   |  |  |  ├─ frame.styl
+M   |  |  |  ├─ reset.styl
+M   |  |  |  └─ global.styl  
+    |  ├─ /components   &lt;-- 公共模块组件目录
+    |  ├─ /pages        &lt;-- 页面组件目录
+    |  ├─ App.js        &lt;-- 项目主模块
+    |  └─ index.js      &lt;-- 项目入口文件
+    └─ yarn.lock
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>frame.styl 代码如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@import './reset.styl';
+@import './global.styl';
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>src/index.js 代码修改如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React from 'react'
+    import ReactDOM from 'react-dom'
+    import App from './App'
+M   import './common/style/frame.styl'
+
+    ReactDOM.render(&lt;App /&gt;, document.getElementById('root'))
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>最基本的配置搞定了，接下来要开始引入页面（pages）了。页面的切换需要使用路由（Router），请继续阅读下面的章节。</p> <h2 id="_4-路由"><a href="#_4-路由" class="header-anchor">🖌</a> 4 路由</h2> <h3 id="_4-1-页面构建"><a href="#_4-1-页面构建" class="header-anchor">🖌</a> 4.1 页面构建</h3> <p>首先，构建 home 和 login 页面。</p> <p>src/pages/home/index.js 代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React, { Component } from 'react'
+import './home.styl'
+
+class Home extends Component {
+    render() {
+        return (
+            &lt;div class&gt;
+                &lt;h1&gt;Home page&lt;/h1&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Home
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>src/pages/home/home.styl 代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>.P-home
+    h1
+        padding: 20px 0
+        font-size: 30px
+        color: #fff
+        background: #67C23A
+        text-align: center
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>src/pages/login/index.js 代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React, { Component } from 'react'
+import './login.styl'
+
+class Login extends Component {
+    render() {
+        return (
+            &lt;div class&gt;
+                &lt;h1&gt;Login page&lt;/h1&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Login
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>src/pages/login/login.styl 代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>.P-login
+    h1
+        background: #E6A23C
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>我个人的习惯是，仅供参考：</p> <blockquote><p>全局公用级别（不需要模块化）的 className，用 G-xxx。例如 G-autocut(截字)、G-color-red(文字红色)。</p> <p>页面级别的 className，用 P-xxx。</p> <p>模块级别的 className，用 M-xxx。</p></blockquote> <p>接下来，我们使用 react-router-dom 实现路由。</p> <h3 id="_4-2-使用-react-router-dom"><a href="#_4-2-使用-react-router-dom" class="header-anchor">🖌</a> 4.2 使用 react-router-dom</h3> <p>执行安装命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install react-router-dom --save
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>修改 src/App.js，代码如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React, { Fragment } from 'react'
+import Login from './pages/login'
+import Home from './pages/home'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+
+function App() {
+  return (
+    &lt;Fragment&gt;
+      &lt;HashRouter&gt;
+        &lt;Switch&gt;
+          &lt;Route path=&quot;/login&quot; component={Login} /&gt;
+          &lt;Route path=&quot;/home&quot; component={Home} /&gt;
+          &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+          &lt;Redirect to={&quot;/home&quot;} /&gt;
+        &lt;/Switch&gt;
+      &lt;/HashRouter&gt;
+    &lt;/Fragment&gt;
+  )
+}
+
+export default App
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>App.js 引入了 Home 和 Login 两个页面级组件。然后使用 react-router-dom 分别设置了路径。</p> <p>import 的机制是默认寻找 index.js，所以每个组件的主文件名设为 index.js，在引用的时候就可以省略文件名。</p> <p>这里说明一下<code>&lt;Route&gt;</code>的属性：</p> <blockquote><p>path 表示路径，这个很好理解。</p></blockquote> <blockquote><p>component 表示绑定的组件。</p></blockquote> <blockquote><p>exact 表示是否精确匹配。</p></blockquote> <p>如果没有设置 exact，那么：</p> <p><code>localhost:3000/</code>会显示 Home 页，</p> <p><code>localhost:3000/abc</code>也会显示 Home 页。</p> <p>因为匹配到了前面的 &quot;/&quot;，路由就会成功。</p> <p>最后的<code>&lt;Redirect&gt;</code>表示以上都没有匹配成功的会，默认跳转的路由。</p> <p>来看下效果：</p> <p>访问<code>http://localhost:3000/#/login</code>效果：</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c138dca4e8f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>访问<code>http://localhost:3000/#/home</code>效果：</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c15527756ee?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h3 id="_4-3-路由跳转"><a href="#_4-3-路由跳转" class="header-anchor">🖌</a> 4.3 路由跳转</h3> <p>接下来，简单介绍下如果在页面之间进行路由跳转。</p> <p>在 Login 页面添加一个用于跳转至 Home 页的按钮，代码修改如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React, { Component } from 'react'
+    import './login.styl'
+
+    class Login extends Component {
+        render() {
+            return (
+               &lt;div class&gt;
+                    &lt;h1&gt;Login page&lt;/h1&gt;
++                   &lt;button onClick={this.gotoHome.bind(this)}&gt;跳转Home页&lt;/button&gt;
+                &lt;/div&gt;
+            )
+        }
+
++       gotoHome() {
++           this.props.history.push('/home')
++       }
+    }
+
+    export default Login
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>注意 button 的 onClick 里要 bind(this)，否则，在 gotoHome 里的 this 是 undefined。</p> <p>当然，也可以这么写：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;button onClick={() =&gt; {this.gotoHome()}}&gt;跳转Home页&lt;/button&gt;
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>最终目的都是要让 gotoHome 中的 this 指向正确的作用域。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005e0d89dbfb2e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h2 id="_5-组件引入"><a href="#_5-组件引入" class="header-anchor">🖌</a> 5 组件引入</h2> <p>这章节内容也很容易，接触过 vue 的同学应该也很清楚，为了教程的完整性，还是简单说一下。下面来简单实现一个公用的头部组件。</p> <h3 id="_5-1-创建-header-组件"><a href="#_5-1-创建-header-组件" class="header-anchor">🖌</a> 5.1 创建 header 组件</h3> <p>目录结构如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    |  ├─ /components   &lt;-- 公共模块组件目录
++   |  |  ├─ /header    &lt;-- 公用header组件
++   |  |  |  ├─ index.js 
++   |  |  |  └─ header.styl 
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>src/components/header/index.js 代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React, { Component } from 'react'
+import './header.styl'
+
+class Header extends Component {
+    render() {
+        return (
+            &lt;div class&gt;
+                Header
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Header
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>src/components/header/header.styl 代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>.M-header
+    height: 40px
+    line-height: 40px
+    font-size: 36px
+    color: #fff
+    background: #409EFF
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="_5-2-引入-header-组件"><a href="#_5-2-引入-header-组件" class="header-anchor">🖌</a> 5.2 引入 Header 组件</h3> <p>然后，在 Home 和 Login 页面里引入 Header 组件。</p> <p>以 Home 页面为例，修改 src/pages/home/index.js：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    import React, { Component } from 'react'
++   import Header from '../../components/header'
+    import './home.styl'
+
+    class Home extends Component {
+        render() {
+            return (
+                &lt;div class&gt;
++                   &lt;Header /&gt;
+                    &lt;h1&gt;Home page&lt;/h1&gt;
+                &lt;/div&gt;
+            )
+        }
+    }
+
+    export default Home
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>同样的方式在 Login 页面也引入 Header 组件，代码就不放出了。效果如下：</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c1c96afcebc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <h3 id="_5-3-组件传参"><a href="#_5-3-组件传参" class="header-anchor">🖌</a> 5.3 组件传参</h3> <p>使用过 vue 的同学都知道，vue 组件有 data 和 props。对应 react 的是 state 和 props。</p> <p>react 向子组件传参使用以下方式：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;Header 
+    param1=&quot;abc&quot;
+    param2=&quot;c&quot;
+    func1={()=&gt;{console.log('func1')}}
+/&gt;
+复制代码
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>在 Header 组件内部，直接使用 this.props 就可以接收。例如：this.props.param1。</p> <p>本次分享主要是介绍流程性的内容，篇幅有限，关于 react 的 state 和 props 请查阅官方文档。</p> <h2 id="_6-react-developer-tools-浏览器插件"><a href="#_6-react-developer-tools-浏览器插件" class="header-anchor">🖌</a> 6 React Developer Tools 浏览器插件</h2> <p>为了更方便调试 react 项目，建议安装 chrome 插件。</p> <p>先科学上网，在 chrome 网上应用店里搜索 “React Developer Tools” 并安装。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005c22309bfc29?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p> <p>安装完成后，打开 chrome 调试工具，可以清晰的看到 react 项目代码结构。</p> <p><img src="https://user-gold-cdn.xitu.io/2020/2/2/17005e18e0cf35b7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/share-blog/assets/js/app.44a06aa1.js" defer></script><script src="/share-blog/assets/js/4.76e0b0a9.js" defer></script><script src="/share-blog/assets/js/2.c3848be1.js" defer></script><script src="/share-blog/assets/js/16.e572b42b.js" defer></script><script src="/share-blog/assets/js/7.51a66021.js" defer></script>
+  </body>
+</html>
