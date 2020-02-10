@@ -6,6 +6,7 @@
 	filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);  
 	_filter:none; 
 	} */
+
 @keyframes move {
 	0% {
 		background-position-x: -200px;
@@ -18,6 +19,43 @@
 	}
 }
 
+@media screen and (max-width: 400px) {
+	* {
+		font-family: "small fonts";
+	}
+
+	.font-active {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.tag {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 400px) {
+	* {
+		font-family: "楷体";
+	}
+
+	.font-active {
+		font-size: 36px;
+		font-weight: bold;
+	}
+	.font-active.home-menu-content-top-header{
+		font-size: 28px;
+	}
+
+	.tag {
+		font-size: 14px;
+	}
+
+	.header {
+		width: 80%;
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -27,7 +65,6 @@ body {
 	overflow: hidden;
 	position: relative;
 	background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%);
-	font-family: "楷体";
 	font-size: 20px;
 }
 
@@ -50,6 +87,13 @@ body {
 	transition: all .8s ease-in-out;
 }
 
+.header {
+	position: relative;
+	margin-left: 10%;
+	margin-top: 1%;
+	position: relative;
+}
+
 .font-active {
 	background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 	display: inline-block;
@@ -61,12 +105,52 @@ body {
 	animation: move 2s alternate infinite;
 }
 
-.title {
-	margin-left: 10%;
-	font-size: 36px;
-	font-weight: bold;
-	margin-top: 1%;
+
+
+.home .contain.active .players {
+	position: absolute;
+	top: 35px;
+	right: 0;
 }
+
+.player>div {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 5px;
+	right: 17px;
+}
+
+.player .iconfont {
+	font-size: 30px;
+	height: 40px;
+	line-height: 40px;
+	width: 40px;
+	text-align: center;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: rgba(255, 255, 255, .6);
+}
+
+.icon-yinliang-di::before {
+	margin-left: 3px;
+}
+
+#suvinior {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 35px;
+}
+
+.player .iconfont.icon-yinliang-di {
+	display: none;
+}
+
+
 
 .home .contain .home-menu {
 	height: 30px;
@@ -76,7 +160,7 @@ body {
 	overflow: hidden;
 	transition: all .8s ease-in-out;
 	box-shadow: 0 0 25px rgba(255, 255, 255, .2);
-	backdrop-filter: blur(20px);
+/* 	backdrop-filter: blur(20px); */
 }
 
 .home .contain.active .home-menu {
@@ -135,37 +219,34 @@ body {
 	align-items: center;
 }
 
-.home-menu-content .home-menu-content-top{
+.home-menu-content .home-menu-content-top {
 	width: 80%;
 	margin-left: 10%;
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
 	border-radius: 20px;
-	color:#fff;
+	color: #fff;
 	font-weight: bold;
 	font-size: 22px;
 }
 
-.home .contain.active .home-menu-content .home-menu-content-top{
+.home .contain.active .home-menu-content .home-menu-content-top {
 	margin-top: 20px;
-	border-left:1px solid rgba(255,255,255,.2);
-	border-right:1px solid rgba(255,255,255,.2);
-	border-bottom:1px solid rgba(255,255,255,.2);
-	position: relative;
 }
 
-.home .contain .home-menu-content .home-menu-content-left{
+.home .contain .home-menu-content .home-menu-content-left {
 	display: none;
 	overflow: hidden;
 }
 
-.home .contain.active .home-menu-content .home-menu-content-left{
+.home .contain.active .home-menu-content .home-menu-content-left {
 	display: flex;
 	overflow: visible;
 	height: calc(100% - 70px);
 }
-.home-menu-content .home-menu-content-left{
+
+.home-menu-content .home-menu-content-left {
 	width: 80%;
 	flex-flow: column wrap;
 	justify-content: flex-start;
@@ -173,61 +254,23 @@ body {
 	margin-left: 10%;
 }
 
-.home .contain.active .player,.home .contain.active .player > div{
-	position: absolute;
-	top: 35px;
-	right: 0;
-}
-.player,.player > div{
-	position: absolute;
-	top: 17px;
-	right: 17px;
-}
-
-.player .iconfont{
-	font-size: 30px;
-	height: 40px;
-	line-height: 40px;
-	width: 40px;
-	text-align: center;
-	display: block;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	color:rgba(255,255,255,.6);
-}
-.icon-yinliang-di::before{
-	margin-left: 3px;
-}
-#suvinior{
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 35px;
-}
-
-.player .iconfont.icon-yinliang-di{
-	display: none;
-}
-
-.home-menu-content .tag{
+.home-menu-content .tag {
 	text-align: left;
 	display: inline-block;
-	font-size: 14px;
 	padding: 8px 0;
 	min-width: 100px;
 	text-align: center;
-	color: rgba(255,255,255,.6);
+	color: rgba(255, 255, 255, .6);
 	text-decoration: none;
-	box-shadow: 0 0 5px rgba(255,255,255,.1) inset;
+	box-shadow: 0 0 5px rgba(255, 255, 255, .1) inset;
 	border-radius: 6px;
 	margin-top: 10px;
 	transition: all .3s ease-in;
 }
-.home-menu-content .tag:hover{
-	color: rgba(255,255,255,1);
-	box-shadow: 0 0 5px rgba(255,255,255,.4) inset;
+
+.home-menu-content .tag:hover {
+	color: rgba(255, 255, 255, 1);
+	box-shadow: 0 0 5px rgba(255, 255, 255, .4) inset;
 	transform: scale(1.2);
 	font-weight: bold;
 }
